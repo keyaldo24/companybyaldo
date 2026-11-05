@@ -28,11 +28,32 @@
             </ul>
         </div>
         <div class="d-flex gap-2">
-            <button class="btn btn-light position-relative" type="button"
-            data-bs-toggle="offcanvas" data-bs-target="#canvasKeranjang"> <i class="bi bi-basket2-fill"></i><span class="top-0 start-100 translate-middle position-absolute badge bg-danger">3</span></button>
+                        <button
+            class="btn btn-light position-relative"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#canvasKeranjang"
+            >
+            <i class="bi bi-basket2-fill"></i>
+            <span
+                id="cartCount"
+                class="top-0 start-100 translate-middle position-absolute badge bg-danger"
+            >0</span>
+            </button>
             <button class="btn btn-light"><i class="bi bi-search"></i></button>
-            <button class="btn btn-outline-primary" type="button" data-bs-toggle="OffCanvas" data-bs-target="#CanvasLogin"> <i class="bi bi-box-arrow-in-right"></i> Login</button>
-            <button class="btn btn-primary"> <i class="bi bi-door-open"></i> Sign Up</button>
+           <button
+            class="btn btn-outline-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#loginModal">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+            </button>
+
+            <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#registerModal">
+            <i class="bi bi-person-plus"></i> Sign Up
+            </button>
         </div>
     </div>
 </nav>
@@ -331,72 +352,135 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
      </div>
-     <div class="offcanvasbody">
-          <!-- PRODUK 1 -->
-           <div class="d-flex gap-3">
-            <img src="https://blog.ifixied.co.id/wp-content/uploads/2025/11/image.png" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px;" alt="Produk 1">
-            <div class="flex-grow-1">
-                <h6 class="fw-bold">iPhone 18 Pro Max</h6>
-                <p class="text-secondary">Rp. 40.000.000</p>
-                <div class="d-flex gap-2 align-items-center">
-                    <button class="btn btn-outline-secondary">-</button>
-                    <span>1</span>
-                    <button class="btn btn-outline-secondary">+</button>
+                    <div class="offcanvas-body">
+                <div id="cartItems">
+                    <p class="text-center text-secondary">
+                    Keranjang lu masih kosong.
+                    </p>
                 </div>
-            </div>
-             <button class="btn btn-danger d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-radius: 10%;">
-             <i class="bi bi-trash"></i>
-           </button>
-           </div>
-          <!-- PRODUK 2 -->
-           <div class="d-flex gap-3">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKwWXc5e7IBoDU0E5ooE5bQSbAs-0DmZbeAnYnGBAQBg&s=10" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px;" alt="Produk 2">
-            <div class="flex-grow-1">
-                <h6 class="fw-bold">iPhone 17 Pro Max</h6>
-                <p class="text-secondary">Rp. 30.000.000</p>
-                <div class="d-flex gap-2 align-items-center">
-                    <button class="btn btn-outline-secondary">-</button>
-                    <span>1</span>
-                    <button class="btn btn-outline-secondary">+</button>
+
+                <hr>
+
+                <div class="d-flex justify-content-between">
+                    <span>Total harga</span>
+                    <strong id="cartTotal">Rp0</strong>
                 </div>
-            </div>
-             <button class="btn btn-danger d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-radius: 10%;">
-             <i class="bi bi-trash"></i>
-           </button>
-           </div>
-          <!-- PRODUK 3 -->
-           <div class="d-flex gap-3">
-            <img src="https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/article/Apple-iPhone-16-Pro-finish-lineup-240909_big.jpg.large.jpg" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px;" alt="Produk 3">
-            <div class="flex-grow-1">
-                <h6 class="fw-bold">iPhone 16 Pro Max</h6>
-                <p class="text-secondary">Rp. 24.000.000</p>
-                <div class="d-flex gap-2 align-items-center">
-                    <button class="btn btn-outline-secondary">-</button>
-                    <span>1</span>
-                    <button class="btn btn-outline-secondary">+</button>
+
+                <div class="d-flex justify-content-between">
+                    <span>Ongkir</span>
+                    <span id="shippingCost">Rp0</span>
                 </div>
-            </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-between fs-5">
+                    <strong>Subtotal</strong>
+                    <strong id="cartSubtotal">Rp0</strong>
+                </div>
+
+                <button class="btn btn-success w-100 mt-3" id="checkoutBtn">
+                    <i class="bi bi-credit-card-fill"></i>
+                    Checkout
+                </button>
+                </div>
             <button class="btn btn-danger d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-radius: 10%;">
              <i class="bi bi-trash"></i>
            </button>
            </div>
            <hr>
-           <div class="d-flex justify-content-between align-items-center">
-               <h5>Total Harga</h5>
-               <h5>Rp. 94.000.000</h5>
-           </div>
-           <div class="d-flex justify-content-between align-items-center">
-               <h5>Ongkir</h5>
-               <h5>Rp. 10.000.000</h5>
-           </div>
-           <div class="d-flex justify-content-between align-items-center">
-               <h5 class="fw-bold">Subtotal</h5>
-               <h5 class="fw-bold">Rp. 104.000.000</h5>
-           </div>
-           <button class="btn btn-success w-100 btn-lg"> <i class="bi bi-credit-card-fill"></i> 
-              Checkout</button>
-     </div>
-     </div>
+           
+     
+<!-- LOGIN MODAL -->
+<div class="modal fade" id="loginModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">Welcome Back!</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body p-4 pt-0">
+        <p class="text-secondary">Login ke akun Digimaps lu.</p>
+
+        <form id="loginForm">
+          <label class="form-label">Email</label>
+          <input type="email" id="loginEmail"
+            class="form-control mb-3"
+            placeholder="nama@email.com" required>
+
+          <label class="form-label">Password</label>
+          <input type="password" id="loginPassword"
+            class="form-control mb-3"
+            placeholder="Masukkan password" required>
+
+          <button class="btn btn-primary w-100" type="submit">
+            Login
+          </button>
+        </form>
+
+        <p class="text-center mt-3 mb-0">
+          Belum punya akun?
+          <a href="#" data-bs-target="#registerModal"
+            data-bs-toggle="modal">Register</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div class="modal fade" id="registerModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">Create Account</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body p-4 pt-0">
+        <p class="text-secondary">Buat akun Digimaps baru.</p>
+
+        <form id="registerForm">
+          <label class="form-label">Nama lengkap</label>
+          <input type="text" id="registerName"
+            class="form-control mb-3"
+            placeholder="Nama lu" required>
+
+          <label class="form-label">Email</label>
+          <input type="email" id="registerEmail"
+            class="form-control mb-3"
+            placeholder="nama@email.com" required>
+
+          <label class="form-label">Password</label>
+          <input type="password" id="registerPassword"
+            class="form-control mb-3"
+            minlength="8"
+            placeholder="Minimal 8 karakter" required>
+
+          <label class="form-label">Konfirmasi password</label>
+          <input type="password" id="confirmPassword"
+            class="form-control mb-3"
+            placeholder="Ulangi password" required>
+
+          <button class="btn btn-primary w-100" type="submit">
+            Create Account
+          </button>
+        </form>
+
+        <p class="text-center mt-3 mb-0">
+          Udah punya akun?
+          <a href="#" data-bs-target="#loginModal"
+            data-bs-toggle="modal">Logins</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
+</html>
 </body>
 </html>
